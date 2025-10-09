@@ -1,0 +1,131 @@
+.experience {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title .gradient {
+  background: linear-gradient(90deg, #007bff, #9b4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin-bottom: 3rem;
+}
+
+/* --- Filtres (Formation / Expérience) --- */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  background: var(--color-surface);
+  border: none;
+  color: var(--color-text);
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg, #007bff, #9b4dff);
+  color: white;
+}
+
+/* --- Timeline --- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: rgba(0, 180, 255, 0.2);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.timeline-content {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.1);
+  flex: 1;
+  text-align: left;
+}
+
+.timeline-date {
+  display: inline-block;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-content h4 {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.timeline-content p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}

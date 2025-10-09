@@ -1,0 +1,235 @@
+/* =============================
+   BASE.CSS — Styles globaux du site
+   Design sombre + accent bleu/violet
+============================= */
+
+/* --- Variables globales --- */
+:root {
+  --color-bg: #0b0b0c;
+  --color-surface: #111;
+  --color-surface-light: #151515;
+  --color-text: #f5f5f5;
+  --color-muted: #b0b0b0;
+  --color-accent: #007bff;
+  --color-accent-secondary: #9b4dff;
+  --color-gradient: linear-gradient(90deg, #007bff, #9b4dff);
+
+  --radius: 15px;
+  --shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+
+  /* --- Typographie --- */
+  --font-family: "Poppins", sans-serif;
+  --font-size-small: 0.95rem;
+  --font-size-base: 1.05rem;
+  --font-size-large: 1.25rem;
+  --font-size-title: 2.5rem;
+  --font-size-subtitle: 1.2rem;
+}
+
+/* =============================
+   RESET & STRUCTURE GLOBALE
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* =============================
+   TYPOGRAPHIE
+============================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: var(--font-size-title);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: var(--font-size-large);
+}
+
+p,
+li {
+  font-size: var(--font-size-base);
+  color: var(--color-muted);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+/* =============================
+   BOUTONS GÉNÉRIQUES
+============================= */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: var(--font-size-base);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-secondary);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* =============================
+   SECTIONS
+============================= */
+section {
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-title span {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 3rem;
+  font-size: var(--font-size-subtitle);
+}
+
+/* =============================
+   SCROLLBAR (personnalisée)
+============================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-secondary);
+}
+
+/* =============================
+   FOOTER
+============================= */
+footer {
+  background: var(--color-surface);
+  padding: 2rem;
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (min-width: 1200px) {
+  :root {
+    --font-size-base: 1.1rem;
+    --font-size-large: 1.35rem;
+    --font-size-title: 2.7rem;
+    --font-size-subtitle: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 1rem;
+    --font-size-large: 1.1rem;
+    --font-size-title: 2.1rem;
+  }
+
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* =============================
+   UTILITAIRES
+============================= */
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.shadow-hover {
+  transition: 0.3s;
+}
+
+.shadow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.2);
+}

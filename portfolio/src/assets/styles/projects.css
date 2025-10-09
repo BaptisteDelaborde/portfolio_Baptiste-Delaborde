@@ -1,0 +1,284 @@
+/* =============================
+   SECTION PROJETS
+============================= */
+
+.projects {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title .gradient {
+  background: linear-gradient(90deg, #007bff, #9b4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 0.5rem auto 2rem;
+  background: linear-gradient(90deg, #007bff, #9b4dff);
+  border-radius: 10px;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+/* --- Grille des projets --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- Carte projet --- */
+.project-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.25);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Tags --- */
+.tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags span {
+  background: linear-gradient(90deg, #007bff, #9b4dff);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* --- Contenu de la carte --- */
+.project-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.project-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.project-content h4 {
+  font-size: 0.9rem;
+  color: var(--color-accent-light);
+  margin-bottom: 1rem;
+}
+
+.project-content p {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Bouton principal --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #007bff, #00b4ff);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+}
+
+/* =============================
+   MODALE (Popup de détails)
+============================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #111;
+  color: var(--color-text);
+  border-radius: 15px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.3);
+  position: relative;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.modal-content {
+  padding: 2rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Contenu texte --- */
+.modal-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.long-description {
+  margin-bottom: 1.5rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.modal-content h4 {
+  color: var(--color-accent-light);
+  margin: 1.5rem 0 0.5rem;
+  text-align: left;
+}
+
+/* --- Liste de fonctionnalités --- */
+.modal-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+  text-align: left; /* ✅ aligné à gauche */
+}
+
+.modal-content li {
+  margin-bottom: 0.4rem;
+}
+
+/* --- Technologies --- */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.tech-list span {
+  background: rgba(0, 180, 255, 0.15);
+  color: #00b4ff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* --- Bouton GitHub (blanc) --- */
+.github {
+  background: #ffffff !important; /* ✅ fond blanc */
+  color: #000 !important;          /* ✅ texte noir */
+  border: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.github:hover {
+  background: #f0f0f0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
