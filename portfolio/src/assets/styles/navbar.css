@@ -47,12 +47,14 @@
   color: #00b4ff;
 }
 
-.nav-links a.active {
+/* --- Lien actif (desktop + mobile) --- */
+.nav-links a.active,
+.mobile-menu a.active {
   background: rgba(0, 180, 255, 0.15);
   border: 1px solid #00b4ff;
   box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
+  color: #00b4ff;
 }
-
 /* --- Hamburger --- */
 .burger {
   display: none;

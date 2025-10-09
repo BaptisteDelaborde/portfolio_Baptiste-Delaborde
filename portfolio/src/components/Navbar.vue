@@ -1,6 +1,5 @@
 <template>
   <header class="navbar">
-    <!-- Logo -->
     <div class="nav-logo">BD</div>
 
     <!-- Bouton hamburger -->
@@ -10,80 +9,64 @@
 
     <!-- Liens desktop -->
     <nav class="nav-links">
-      <a 
-        href="#home" 
-        :class="{ active: currentSection === 'home' }" 
-        @click="setActive('home')"
+      <a
+        href="#home"
+        :class="{ active: activeSection === 'home' }"
       >Accueil</a>
-
-      <a 
-        href="#about" 
-        :class="{ active: currentSection === 'about' }" 
-        @click="setActive('about')"
+      <a
+        href="#about"
+        :class="{ active: activeSection === 'about' }"
       >À propos</a>
-
-      <a 
-        href="#skills" 
-        :class="{ active: currentSection === 'skills' }" 
-        @click="setActive('skills')"
+      <a
+        href="#skills"
+        :class="{ active: activeSection === 'skills' }"
       >Compétences</a>
-
-      <a 
-        href="#projects" 
-        :class="{ active: currentSection === 'projects' }" 
-        @click="setActive('projects')"
+      <a
+        href="#projects"
+        :class="{ active: activeSection === 'projects' }"
       >Projets</a>
-
-      <a 
-        href="#experience" 
-        :class="{ active: currentSection === 'experience' }" 
-        @click="setActive('experience')"
+      <a
+        href="#experience"
+        :class="{ active: activeSection === 'experience' }"
       >Expériences</a>
-
-      <a 
-        href="#contact" 
-        :class="{ active: currentSection === 'contact' }" 
-        @click="setActive('contact')"
+      <a
+        href="#contact"
+        :class="{ active: activeSection === 'contact' }"
       >Contact</a>
     </nav>
 
     <!-- Menu mobile -->
     <transition name="slide">
       <div v-if="menuOpen" class="mobile-menu">
-        <a 
-          href="#home" 
-          :class="{ active: currentSection === 'home' }" 
-          @click="setActive('home')"
+        <a
+          href="#home"
+          :class="{ active: activeSection === 'home' }"
+          @click="closeMenu"
         >Accueil</a>
-
-        <a 
-          href="#about" 
-          :class="{ active: currentSection === 'about' }" 
-          @click="setActive('about')"
+        <a
+          href="#about"
+          :class="{ active: activeSection === 'about' }"
+          @click="closeMenu"
         >À propos</a>
-
-        <a 
-          href="#skills" 
-          :class="{ active: currentSection === 'skills' }" 
-          @click="setActive('skills')"
+        <a
+          href="#skills"
+          :class="{ active: activeSection === 'skills' }"
+          @click="closeMenu"
         >Compétences</a>
-
-        <a 
-          href="#projects" 
-          :class="{ active: currentSection === 'projects' }" 
-          @click="setActive('projects')"
+        <a
+          href="#projects"
+          :class="{ active: activeSection === 'projects' }"
+          @click="closeMenu"
         >Projets</a>
-
-        <a 
-          href="#experience" 
-          :class="{ active: currentSection === 'experience' }" 
-          @click="setActive('experience')"
+        <a
+          href="#experience"
+          :class="{ active: activeSection === 'experience' }"
+          @click="closeMenu"
         >Expériences</a>
-
-        <a 
-          href="#contact" 
-          :class="{ active: currentSection === 'contact' }" 
-          @click="setActive('contact')"
+        <a
+          href="#contact"
+          :class="{ active: activeSection === 'contact' }"
+          @click="closeMenu"
         >Contact</a>
       </div>
     </transition>
@@ -91,22 +74,37 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const menuOpen = ref(false);
-const currentSection = ref("home");
+const activeSection = ref("home");
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
 
-const setActive = (section) => {
-  currentSection.value = section;
+const closeMenu = () => {
   menuOpen.value = false;
 };
-</script>
 
-<style scoped>
-/* Icônes Font Awesome */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
-</style>
+let observer = null;
+
+onMounted(() => {
+  const sections = document.querySelectorAll("section[id]");
+  const options = { root: null, threshold: 0.5 };
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        activeSection.value = entry.target.id;
+      }
+    });
+  }, options);
+
+  sections.forEach((section) => observer.observe(section));
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
+</script>
