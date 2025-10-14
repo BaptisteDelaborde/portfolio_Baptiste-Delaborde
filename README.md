@@ -1,143 +1,85 @@
 # 🌐 Portfolio – Baptiste Delaborde
 
-> 🚀 Portfolio personnel développé avec **Vue.js** & **Vite**, déployé sur **Netlify**.  
-> Ce site présente mes projets, mes compétences, mon parcours et mes expériences dans le développement web & mobile.
+Un portfolio moderne réalisé avec **Vue.js + Vite + Tailwind CSS**, hébergé sur **Netlify**.  
+Il présente mon profil, mes compétences, mes projets, mes expériences et un formulaire de contact fonctionnel via **EmailJS + Brevo (SMTP)**.
 
 ---
 
-## ✨ Aperçu
+## 🚀 Installation du projet
 
-![Aperçu du site](./src/assets/preview.png)
-
-👉 [Voir le site en ligne](https://baptiste-delaborde.netlify.app/) *(remplace par ton vrai lien Netlify)*
-
----
-
-## 🧠 À propos du projet
-
-Ce portfolio a été conçu pour mettre en avant mes compétences techniques et mes réalisations de manière simple, fluide et moderne.  
-Le site est **totalement responsive**, optimisé pour le défilement vertical (scroll navigation) et propose une interface claire dans une **thématique bleu & noir**.
-
----
-
-## 🧩 Fonctionnalités principales
-
-- 🎨 **Interface moderne & animée** (thème sombre avec accents bleus)
-- 🧭 **Navigation fluide** entre les sections via le scroll
-- 📱 **Responsive design** (menu burger sur mobile)
-- ⚙️ **Composants Vue modulaires**
-- 💡 **Surbrillance dynamique** de la section active dans la barre de navigation
-- 🖼️ **Page d’accueil avec animation de souris “scroll down”**
-- 💬 **Formulaire de contact fonctionnel** (via Netlify Forms ou autre)
-- 🧰 **Sections** :
-  - Accueil
-  - À propos
-  - Compétences
-  - Projets
-  - Expériences
-  - Contact
-
----
-
-## 🛠️ Technologies utilisées
-
-| Type | Outils |
-|------|---------|
-| Framework front-end | [Vue.js 3](https://vuejs.org/) |
-| Bundler | [Vite](https://vitejs.dev/) |
-| Hébergement | [Netlify](https://www.netlify.com/) |
-| Langages | HTML5, CSS3, JavaScript |
-| Gestion de version | Git & GitHub |
-
----
-
-## ⚙️ Installation locale
-
-Si tu veux exécuter ce projet en local :
-
+### 1. Cloner le dépôt
 ```bash
-# 1️⃣ Clone le dépôt
-git clone https://github.com/ton-pseudo/portfolio-baptiste.git
+git clone git@github.com:BaptisteDelaborde/portfolio_Baptiste-Delaborde.git
+cd porfolio_Baptiste-Delaborde/portfolio
+```
 
-# 2️⃣ Va dans le dossier
-cd portfolio-baptiste
-
-# 3️⃣ Installe les dépendances
+### 2. Installer les dépendances
+```bash
 npm install
-
-# 4️⃣ Lance le serveur local
-npm run dev
 ```
-
-Le site sera disponible sur 👉 [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 🏗️ Build & déploiement
+## 🧩 Dépendances principales
 
-### 🔹 Build local :
+| Outil / Lib | Utilité |
+|--------------|----------|
+| **Vue.js 3** | Framework principal du projet |
+| **Vite** | Outil de build rapide |
+| **Tailwind CSS** | Stylisation rapide et moderne |
+| **EmailJS** | Envoi d’e-mails depuis le formulaire de contact |
+| **Brevo (ex Sendinblue)** | Serveur SMTP pour EmailJS |
+
+---
+
+## ⚙️ Configuration du formulaire de contact
+
+1. Crée un compte sur [EmailJS](https://www.emailjs.com/)
+2. Connecte ton service **Brevo SMTP** avec les informations suivantes :
+   - **Serveur SMTP** : `smtp-relay.brevo.com`
+   - **Port** : `587`
+   - **Utilisateur** : ton identifiant SMTP Brevo
+   - **Mot de passe** : ta clé SMTP Brevo
+3. Crée un **template** appelé `Contactez-nous` avec les variables :
+   - `nom`
+   - `email`
+   - `message`
+4. Copie les valeurs suivantes dans ton projet :
+   - `service_id`
+   - `template_id`
+   - `public_key`
+
+5. Installe la dépendance EmailJS :
 ```bash
-npm run build
+npm install emailjs-com
 ```
 
-Le dossier final est généré dans `/dist`.
-
-### 🔹 Déploiement Netlify :
-1. Connecte ton dépôt GitHub à Netlify  
-2. Paramètres de build :
-   - **Build command :** `npm run build`
-   - **Publish directory :** `dist`
-3. Ajoute un fichier `_redirects` dans `/public` :
-   ```
-   /* /index.html 200
-   ```
-
----
-
-## 🎨 Structure du projet
-
-```
-src/
-├── assets/
-│   ├── css/
-│   │   ├── base.css
-│   │   ├── navbar.css
-│   │   ├── home.css
-│   │   ├── about.css
-│   │   ├── skills.css
-│   │   ├── projects.css
-│   │   ├── experience.css
-│   │   ├── contact.css
-│   │   └── footer.css
-│   └── images/
-│       └── ...
-├── components/
-│   ├── Navbar.vue
-│   ├── Footer.vue
-│   └── ...
-├── views/
-│   ├── HomeView.vue
-│   ├── AboutView.vue
-│   ├── SkillsView.vue
-│   ├── ProjectsView.vue
-│   ├── ExperienceView.vue
-│   └── ContactView.vue
-├── App.vue
-└── main.js
+6. Dans ton composant `ContactSection.vue`, configure l’envoi :
+```javascript
+import emailjs from "@emailjs/browser";
 ```
 
 ---
 
-## 🔥 Auteur
+## 🌍 Déploiement
 
-👤 **Baptiste Delaborde**  
-🎓 Étudiant en BUT Informatique – IUT Nancy-Charlemagne  
-💻 Passionné par le développement web & mobile  
-🌐 [LinkedIn](https://linkedin.com/in/tonprofil) | [GitHub](https://github.com/BaptisteDelaborde)
+Le site est hébergé sur **Netlify**.  
+Assure-toi d’avoir dans ton `vite.config.js` :
+```javascript
+export default defineConfig({
+  plugins: [vue()],
+  base: './', // ✅ nécessaire pour Netlify
+});
+```
 
 ---
 
-## 🪄 Licence
+## 📫 Contact
 
-Ce projet est libre d’inspiration.  
-N’hésitez pas à l’utiliser comme base pour créer votre propre portfolio — tant que vous mentionnez l’auteur original.
+- **Auteur :** Baptiste Delaborde  
+- **Email :** delabordebaptiste8@gmail.com  
+- **Hébergement :** [Netlify](https://www.netlify.com/)
+
+---
+
+© 2025 Baptiste Delaborde – Tous droits réservés.

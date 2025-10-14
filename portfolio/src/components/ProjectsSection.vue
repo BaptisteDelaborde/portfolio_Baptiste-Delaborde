@@ -76,6 +76,7 @@
 
 <script setup>
 import { ref } from "vue";
+import portfolioImage from "@/assets/images/portfolio.png";
 
 const selectedProject = ref(null);
 
@@ -105,6 +106,32 @@ const projects = [
     tags: ["Java", "RMI"],
     image: "/images/nancyspot.png",
     github: "https://github.com/korban2u/NancySpot",
+  },
+
+  {
+    title: "Portfolio Personnel",
+    subtitle: "Application Vue.js / CSS",
+    description:
+      "Mon portfolio personnel, construit avec Vue.js et CSS, présente mes projets et compétences.",
+    fullDescription:
+      "Ce portfolio est une application web interactive qui met en valeur mes réalisations en tant que développeur. Il est construit avec Vue.js pour le frontend et utilise des styles CSS modernes pour une présentation attrayante.",
+    features: [
+      "Présentation de projets avec images et descriptions",
+      "Fenêtre modale pour les détails des projets",
+      "Design responsive pour une expérience optimale sur tous les appareils",
+      "Intégration de liens vers GitHub et autres ressources",
+    ],
+    technologies: [
+      "Vue.js",
+      "CSS",
+      "JavaScript",
+      "HTML5",
+      "FontAwesome",
+    ],
+    tags: ["Vue.js", "CSS"],
+
+    image: portfolioImage,
+    github: "https://github.com/BaptisteDelaborde/portfolio_Baptiste-Delaborde",
   },
   // ➕ ajoute d'autres projets ici
 ];
