@@ -109,7 +109,7 @@
 
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -118,62 +118,71 @@
   opacity: 0.9;
   z-index: 10;
   animation: fadeIn 1.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.scroll-indicator p {
-  margin-top: 0.6rem;
-  color: #aaa;
-  font-size: 0.95rem;
-}
-
-/* ---------- Souris ---------- */
-.mouse {
+/* --- Version Desktop : Souris --- */
+.mouse-icon {
   width: 28px;
   height: 48px;
   border: 2px solid #00aaff;
-  border-radius: 18px;
-  margin: 0 auto;
+  border-radius: 20px;
   position: relative;
+  animation: bounce 2s infinite;
 }
 
 .wheel {
   width: 6px;
-  height: 6px;
-  background: #00aaff;
-  border-radius: 50%;
+  height: 10px;
+  background-color: #00aaff;
+  border-radius: 2px;
   position: absolute;
   top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  animation: scroll-wheel 1.5s infinite;
+  animation: scroll-wheel 1.6s infinite;
 }
 
-/* ---------- Animations ---------- */
+/* --- Animation molette --- */
 @keyframes scroll-wheel {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 15px);
-  }
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  50% { opacity: 1; transform: translate(-50%, 6px); }
+  100% { opacity: 0; transform: translate(-50%, 12px); }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* --- Animation rebond --- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* --- Texte --- */
+.scroll-indicator p {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* --- Version Mobile : Doigt --- */
+.scroll-finger {
+  display: none;
+  font-size: 2rem;
+  color: #00aaff;
+  animation: finger-scroll 2s infinite;
+}
+
+@keyframes finger-scroll {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.6; }
 }
 
 /* =========================================================
    📱 Responsive
    ========================================================= */
+
 @media (max-width: 768px) {
   .home-container {
     flex-direction: column;
@@ -198,7 +207,21 @@
     height: 180px;
   }
 
+  /* On cache la souris et on montre le doigt */
+  .mouse-icon {
+    display: none;
+  }
+
+  .scroll-finger {
+    display: block;
+  }
+
+  /* On éloigne l’indicateur du texte */
   .scroll-indicator {
-    bottom: 25px;
+    bottom: 0px;
+  }
+
+  .scroll-indicator p {
+    font-size: 0.85rem;
   }
 }
