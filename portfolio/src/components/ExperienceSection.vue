@@ -1,7 +1,7 @@
 <template>
   <section id="experience" class="experience">
     <h2 class="section-title">
-      Mon <span class="gradient">parcours</span>
+      Mon <span class="gradient">Parcours</span>
     </h2>
     <p class="subtitle">
       Découvrez mon cheminement académique et mes expériences professionnelles.

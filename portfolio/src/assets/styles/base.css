@@ -1,9 +1,9 @@
 /* =============================
    BASE.CSS — Styles globaux du site
-   Design sombre + accent bleu/violet
+   Design sombre + mode clair intégré
 ============================= */
 
-/* --- Variables globales --- */
+/* --- Thème sombre (par défaut) --- */
 :root {
   --color-bg: #0b0b0c;
   --color-surface: #111;
@@ -17,13 +17,25 @@
   --radius: 15px;
   --shadow: 0 0 20px rgba(0, 180, 255, 0.1);
 
-  /* --- Typographie --- */
   --font-family: "Poppins", sans-serif;
   --font-size-small: 0.95rem;
   --font-size-base: 1.05rem;
   --font-size-large: 1.25rem;
   --font-size-title: 2.5rem;
   --font-size-subtitle: 1.2rem;
+}
+
+/* --- Thème clair --- */
+:root[data-theme="light"] {
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-surface-light: #f0f0f0;
+  --color-text: #1a1a1a;
+  --color-muted: #555;
+  --color-accent: #007bff;
+  --color-accent-secondary: #9b4dff;
+  --color-gradient: linear-gradient(90deg, #007bff, #9b4dff);
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* =============================
@@ -44,6 +56,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.7;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* =============================
@@ -58,6 +71,7 @@ h6 {
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.3;
+  transition: color 0.4s ease;
 }
 
 h1 {
@@ -77,6 +91,7 @@ p,
 li {
   font-size: var(--font-size-base);
   color: var(--color-muted);
+  transition: color 0.4s ease;
 }
 
 a {
@@ -131,6 +146,8 @@ section {
   padding: 5rem 2rem;
   position: relative;
   z-index: 1;
+  background: var(--color-bg);
+  transition: background 0.4s ease;
 }
 
 .section-title {
@@ -154,7 +171,7 @@ section {
 }
 
 /* =============================
-   SCROLLBAR (personnalisée)
+   SCROLLBAR
 ============================= */
 ::-webkit-scrollbar {
   width: 10px;
@@ -170,6 +187,27 @@ section {
 }
 
 /* =============================
+   CARTES & ÉLÉMENTS DE SURFACE
+============================= */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  color: var(--color-text);
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.shadow-hover {
+  transition: 0.3s;
+}
+
+.shadow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.2);
+}
+
+/* =============================
    FOOTER
 ============================= */
 footer {
@@ -179,6 +217,27 @@ footer {
   font-size: var(--font-size-small);
   color: var(--color-muted);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =============================
+   NAVBAR ADAPTATIVE AU THÈME
+============================= */
+.navbar {
+  background: rgba(var(--navbar-bg-rgb, 10, 10, 10), 0.6);
+  backdrop-filter: blur(10px);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Mode clair : navbar légèrement grisée */
+:root[data-theme="light"] .navbar {
+  --navbar-bg-rgb: 240, 240, 240;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Mode sombre : navbar transparente */
+:root[data-theme="dark"] .navbar {
+  --navbar-bg-rgb: 10, 10, 10;
 }
 
 /* =============================
@@ -216,20 +275,4 @@ footer {
   background: var(--color-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.shadow-hover {
-  transition: 0.3s;
-}
-
-.shadow-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px rgba(0, 180, 255, 0.2);
 }

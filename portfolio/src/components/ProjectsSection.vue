@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="projects">
     <h2 class="section-title">
-      Mes <span class="gradient">projets</span>
+      Mes <span class="gradient">Projets</span>
     </h2>
     <p class="subtitle">
       Découvrez une sélection de mes réalisations en développement web et logiciels.

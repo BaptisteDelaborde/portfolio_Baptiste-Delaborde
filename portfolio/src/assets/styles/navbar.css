@@ -17,6 +17,13 @@
   transition: background 0.3s ease;
 }
 
+/* --- Zone gauche (logo + bouton de thème) --- */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* --- Logo --- */
 .nav-logo {
   font-weight: 700;
@@ -25,6 +32,19 @@
   background: linear-gradient(90deg, #007bff, #9b4dff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* --- Bouton de changement de thème --- */
+.theme-toggle {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-accent);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  color: var(--color-accent-secondary);
 }
 
 /* --- Liens desktop --- */
@@ -55,6 +75,7 @@
   box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
   color: #00b4ff;
 }
+
 /* --- Hamburger --- */
 .burger {
   display: none;
@@ -80,8 +101,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* place en haut */
-  padding-top: 8rem; /* espace au-dessus */
+  justify-content: flex-start;
+  padding-top: 8rem;
   gap: 1.8rem;
   animation: fadeIn 0.3s ease;
 }
@@ -107,6 +128,24 @@
   border: 1px solid #00b4ff;
   box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
   background: rgba(0, 180, 255, 0.1);
+}
+
+/* --- Bouton thème dans le menu mobile --- */
+.theme-toggle-mobile {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle-mobile:hover {
+  opacity: 1;
+  color: #00b4ff;
 }
 
 /* --- Animation du menu --- */

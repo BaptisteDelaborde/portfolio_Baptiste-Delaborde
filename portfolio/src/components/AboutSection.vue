@@ -1,83 +1,62 @@
 <template>
-  <section id="about" class="about">
+  <section id="about" class="about-section">
     <h2 class="section-title">
-      À propos <span class="gradient">de moi</span>
+      À propos <span class="gradient">de Moi</span>
     </h2>
 
-    <!-- Cartes principales -->
-    <div class="about-cards">
-      <!-- Profil -->
-      <div class="about-card">
-        <div class="icon"><i class="fas fa-user"></i></div>
-        <h3>Profil</h3>
-        <p>
-          Actuellement étudiant en BUT Informatique à l’IUT Nancy-Charlemagne,
-          je me spécialise dans le parcours Développement Web et Mobile.
-        </p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> Rigoureux et méthodique</li>
-          <li><i class="fas fa-check-circle"></i> Passionné par le développement</li>
-          <li><i class="fas fa-check-circle"></i> En constante recherche d'amélioration</li>
+    <div class="about-grid">
+      <div v-for="card in cards" :key="card.title" class="about-card">
+        <div class="icon">
+          <i :class="card.icon"></i>
+        </div>
+        <h3>{{ card.title }}</h3>
+        <ul v-if="card.items">
+          <li v-for="(item, i) in card.items" :key="i">{{ item }}</li>
         </ul>
-      </div>
-
-      <!-- Coordonnées -->
-      <div class="about-card">
-        <div class="icon"><i class="fas fa-building"></i></div>
-        <h3>Coordonnées</h3>
-        <ul>
-          <li><i class="fas fa-envelope"></i> delabordebaptiste8@gmail.com</li>
-          <li><i class="fas fa-phone"></i> 07 69 07 54 10</li>
-          <li><i class="fas fa-map-marker-alt"></i> Nancy, France</li>
-          <li><i class="fas fa-car"></i> Permis B</li>
-          <li><i class="fas fa-location-arrow"></i> Mobilité : Grand Est</li>
-        </ul>
-      </div>
-
-      <!-- Centres d'intérêt -->
-      <div class="about-card">
-        <div class="icon"><i class="fas fa-star"></i></div>
-        <h3>Centres d’intérêt</h3>
-        <ul>
-          <li><i class="fas fa-code"></i> Programmation (projets perso)</li>
-          <li><i class="fas fa-bicycle"></i> Cyclisme</li>
-          <li><i class="fas fa-gamepad"></i> Jeux vidéo & innovation tech</li>
-        </ul>
+        <p v-if="card.text">{{ card.text }}</p>
       </div>
     </div>
 
-    <!-- Objectif -->
     <div class="about-objective">
       <h3>Mon objectif</h3>
       <p>
         Je souhaite développer mes compétences en développement logiciel et
-        acquérir une expérience solide en entreprise afin de devenir un ingénieur
-        en informatique polyvalent.
+        acquérir une expérience solide afin de devenir un ingénieur polyvalent
+        en informatique, capable de concevoir des applications performantes et
+        intuitives.
       </p>
-
-      <div class="goals">
-        <div class="goal">
-          <div class="goal-icon"><i class="fas fa-bolt"></i></div>
-          <h4>Court terme</h4>
-          <p>Valider mon BUT Informatique</p>
-        </div>
-
-        <div class="goal">
-          <div class="goal-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h4>Moyen terme</h4>
-          <p>Intégrer une école d’ingénieur</p>
-        </div>
-
-        <div class="goal">
-          <div class="goal-icon"><i class="fas fa-briefcase"></i></div>
-          <h4>Long terme</h4>
-          <p>Devenir ingénieur en informatique</p>
-        </div>
-      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-// Aucun script nécessaire pour cette section
+const cards = [
+  {
+    title: "Profil",
+    icon: "fas fa-user",
+    items: [
+      "Étudiant en BUT Informatique à l’IUT Nancy-Charlemagne",
+      "Spécialisation en développement web et mobile",
+      "Rigueur, passion et curiosité",
+    ],
+  },
+  {
+    title: "Coordonnées",
+    icon: "fas fa-address-card",
+    items: [
+      "📧 delabordebaptiste8@gmail.com",
+      "📞 07 69 07 54 10",
+      "📍 Nancy, France",
+    ],
+  },
+  {
+    title: "Centres d’intérêt",
+    icon: "fas fa-star",
+    items: [
+      "Projets de développement personnel",
+      "Cyclisme et sport en équipe",
+      "Innovation technologique et IA",
+    ],
+  },
+];
 </script>

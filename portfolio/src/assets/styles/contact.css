@@ -1,10 +1,9 @@
 /* =============================
-   SECTION CONTACT
+   SECTION CONTACT — Thème clair / sombre adaptatif
 ============================= */
 
 .contact-section {
-  background-color: #0e0e0e;
-  color: #fff;
+  color: var(--color-text);
   padding: 100px 20px;
 }
 
@@ -24,7 +23,6 @@
   background: linear-gradient(90deg, #4f46e5, #9333ea);
   -webkit-background-clip: text;
   color: transparent;
-  border-bottom: 3px solid #9333ea;
   margin-left: 10px;
 }
 
@@ -43,14 +41,21 @@
 /* === BLOCS === */
 .contact-info,
 .contact-form {
-  background-color: #161616;
   border-radius: 16px;
   padding: 50px;
   flex: 1;
   min-width: 400px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
   box-sizing: border-box;
+  background: var(--color-surface);
+}
+
+/* --- Version claire --- */
+:root[data-theme="light"] .contact-info,
+:root[data-theme="light"] .contact-form {
+  background: var(--color-surface-light);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 .contact-info:hover,
@@ -62,7 +67,7 @@
 .contact-form h3 {
   font-size: 1.8rem;
   margin-bottom: 30px;
-  color: #fff;
+  color: var(--color-text);
 }
 
 /* === INFOS === */
@@ -127,20 +132,29 @@
 
 input,
 textarea {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg);
+  color: var(--color-text);
   padding: 15px;
   border-radius: 8px;
   width: 100%;
   font-size: 1rem;
   font-family: inherit;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Version claire --- */
+:root[data-theme="light"] input,
+:root[data-theme="light"] textarea {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 input:focus,
 textarea:focus {
   border-color: #4f9cf9;
   outline: none;
+  box-shadow: 0 0 10px rgba(79, 156, 249, 0.4);
 }
 
 /* === BOUTON === */

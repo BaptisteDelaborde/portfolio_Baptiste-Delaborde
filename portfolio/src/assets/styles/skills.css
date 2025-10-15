@@ -50,7 +50,8 @@
 }
 
 /* --- Faces --- */
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -60,15 +61,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(0, 180, 255, 0);
+  
+  /* ✅ Nouveau fond gris anthracite pour le mode sombre */
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
-.card-front {
-  color: #fff;
+/* ✅ Variante mode clair — reste douce et lumineuse */
+:root[data-theme="light"] .card-front,
+:root[data-theme="light"] .card-back {
+  background: var(--color-surface-light);
+  border: 1px solid rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
 }
+
+
 
 .card-front i {
   font-size: 2.5rem;
@@ -89,7 +98,7 @@
 
 /* --- Face arrière --- */
 .card-back {
-  background: linear-gradient(135deg, #007bff30, #9b4dff30);
+  background: linear-gradient(135deg, #007bff20, #9b4dff20);
   color: #00b4ff;
   transform: rotateY(180deg);
   padding: 1rem;
@@ -103,8 +112,8 @@
 /* --- Hover effect glow --- */
 .skill-card:hover .card-front,
 .skill-card:hover .card-back {
-  box-shadow: 0 0 20px rgba(0, 180, 255, 0.4);
-  border-color: rgba(0, 180, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.4);
+  border-color: rgba(0, 180, 255, 0.4);
 }
 
 /* --- Responsive --- */
