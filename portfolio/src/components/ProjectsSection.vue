@@ -77,6 +77,7 @@
 <script setup>
 import { ref } from "vue";
 import portfolioImage from "@/assets/images/portfolio.png";
+import nbaStatsImage from "@/assets/images/nbastats.png";
 
 const selectedProject = ref(null);
 
@@ -132,6 +133,31 @@ const projects = [
 
     image: portfolioImage,
     github: "https://github.com/BaptisteDelaborde/portfolio_Baptiste-Delaborde",
+  },
+
+    {
+    title: "NBA Stats",
+    subtitle: "Application Vue.js / CSS",
+    description:
+      "Une application web pour visualiser les statistiques de la NBA.",
+    fullDescription:
+      "NBA Stats est une application construite avec Vue.js qui permet aux utilisateurs de consulter les statistiques des joueurs et des équipes de la NBA. L'application utilise une API pour récupérer les données en temps réel et les afficher de manière interactive.",
+    features: [
+      "Affichage des statistiques des joueurs et des équipes",
+      "Recherche et filtrage des données",
+      "Design responsive pour une expérience optimale sur tous les appareils",
+      "Intégration de graphiques pour visualiser les performances",
+    ],
+    technologies: [
+      "Vue.js",
+      "CSS",
+      "JavaScript",
+      "HTML5",
+    ],
+    tags: ["Vue.js", "CSS"],
+
+    image: nbaStatsImage,
+    github: "https://github.com/DioAkaTheWorld/ProjetConnexe_DWM",
   },
   // ➕ ajoute d'autres projets ici
 ];
