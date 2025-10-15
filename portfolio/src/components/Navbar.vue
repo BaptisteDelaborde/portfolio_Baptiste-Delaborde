@@ -24,16 +24,17 @@
         :class="{ active: activeSection === 'skills' }"
         @click="scrollToSection('skills')"
       >Compétences</a>
+       <a
+        href="#experience"
+        :class="{ active: activeSection === 'experience' }"
+        @click="scrollToSection('experience')"
+      >Expériences</a>
       <a
         href="#projects"
         :class="{ active: activeSection === 'projects' }"
         @click="scrollToSection('projects')"
       >Projets</a>
-      <a
-        href="#experience"
-        :class="{ active: activeSection === 'experience' }"
-        @click="scrollToSection('experience')"
-      >Expériences</a>
+    
       <a
         href="#contact"
         :class="{ active: activeSection === 'contact' }"
@@ -60,15 +61,16 @@
           @click="scrollToSection('skills', true)"
         >Compétences</a>
         <a
-          href="#projects"
-          :class="{ active: activeSection === 'projects' }"
-          @click="scrollToSection('projects', true)"
-        >Projets</a>
-        <a
           href="#experience"
           :class="{ active: activeSection === 'experience' }"
           @click="scrollToSection('experience', true)"
         >Expériences</a>
+        <a
+          href="#projects"
+          :class="{ active: activeSection === 'projects' }"
+          @click="scrollToSection('projects', true)"
+        >Projets</a>
+
         <a
           href="#contact"
           :class="{ active: activeSection === 'contact' }"

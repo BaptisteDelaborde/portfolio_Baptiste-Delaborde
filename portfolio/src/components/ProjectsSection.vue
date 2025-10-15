@@ -83,33 +83,6 @@ const selectedProject = ref(null);
 
 const projects = [
   {
-    title: "Nancy Spot",
-    subtitle: "Application RMI / Java",
-    description:
-      "Application répartie pour visualiser des informations hétérogènes sur Nancy avec carte interactive.",
-    fullDescription:
-      "Nancy Spot est une application web répartie qui centralise diverses informations sur la ville de Nancy. L'application utilise une architecture distribuée avec plusieurs services RMI communicants (API REST, base de données Oracle, service proxy pour les données externes...).",
-    features: [
-      "Carte interactive Leaflet avec localisation des points d’intérêt",
-      "Système de réservation avec validation transactionnelle",
-      "Affichage des incidents de circulation",
-      "Support HTTPS et modules JavaScript ES6",
-    ],
-    technologies: [
-      "Java",
-      "RMI",
-      "Oracle",
-      "JavaScript ES6",
-      "Leaflet",
-      "Bootstrap",
-      "API REST",
-    ],
-    tags: ["Java", "RMI"],
-    image: "/images/nancyspot.png",
-    github: "https://github.com/korban2u/NancySpot",
-  },
-
-  {
     title: "Portfolio Personnel",
     subtitle: "Application Vue.js / CSS",
     description:
