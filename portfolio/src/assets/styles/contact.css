@@ -1,5 +1,5 @@
 /* =============================
-   SECTION CONTACT — Thème clair / sombre adaptatif
+   SECTION CONTACT — Thème clair / sombre harmonisé
 ============================= */
 
 .contact-section {
@@ -45,17 +45,21 @@
   padding: 50px;
   flex: 1;
   min-width: 400px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, background 0.3s ease;
   box-sizing: border-box;
-  background: var(--color-surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  
+  /* ✅ Fond gris anthracite pour le mode sombre */
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 /* --- Version claire --- */
 :root[data-theme="light"] .contact-info,
 :root[data-theme="light"] .contact-form {
   background: var(--color-surface-light);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
 }
 
 .contact-info:hover,
@@ -133,7 +137,7 @@
 input,
 textarea {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: var(--color-bg);
+  background: #0f0f0f;
   color: var(--color-text);
   padding: 15px;
   border-radius: 8px;

@@ -87,12 +87,19 @@ const sendEmail = async () => {
   successMessage.value = "";
   errorMessage.value = "";
 
+  // Récupération manuelle des champs
+  const formData = {
+    from_name: form.value.name.value,
+    from_email: form.value.email.value,
+    message: form.value.message.value,
+  };
+
   try {
-    await emailjs.sendForm(
-      "service_3eqckue",         // 🟢 Ton Service ID
-      "template_shlterp",        // 🟢 Ton Template ID
-      form.value,
-      "MRwdTU6gSBcjIph_J"  // 🟢 Ta clé publique EmailJS
+    await emailjs.send(
+      "service_3eqckue",     // ✅ Ton Service ID
+      "template_shlterp",    // ✅ Ton Template ID
+      formData,              // ✅ On envoie les données manuellement
+      "MRwdTU6gSBcjIph_J"    // ✅ Ta clé publique EmailJS
     );
 
     successMessage.value = "Message envoyé avec succès ✅";
