@@ -53,9 +53,9 @@ const cards = [
     title: "Centres d’intérêt",
     icon: "fas fa-star",
     items: [
-      "Projets de développement personnel",
-      "Cyclisme et sport en équipe",
-      "Innovation technologique et IA",
+      "Informatique",
+      "Cyclisme sur route",
+      "Musique",
     ],
   },
 ];
