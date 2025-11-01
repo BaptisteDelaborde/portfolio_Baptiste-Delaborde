@@ -78,6 +78,7 @@
 import { ref } from "vue";
 import portfolioImage from "@/assets/images/portfolio.png";
 import nbaStatsImage from "@/assets/images/nbastats.png";
+import charlyMatLocImage from "@/assets/images/charlymatloc.png";
 
 const selectedProject = ref(null);
 
@@ -131,6 +132,29 @@ const projects = [
 
     image: nbaStatsImage,
     github: "https://github.com/DioAkaTheWorld/ProjetConnexe_DWM",
+  },
+
+  {
+    title: "CharlyMatLoc",
+    subtitle: "Html / SCSS / PHP",
+    description:
+      "Projet de site web pour la location de matériel divers.",
+    fullDescription:
+      "Une description détaillée de ce projet exemple, expliquant ses objectifs, son développement et ses résultats.",
+    features: [
+      "Système de réservation en ligne",
+      "Gestion des utilisateurs",
+      "Intégration de paiements sécurisés",
+    ],
+    technologies: [
+      "PHP",
+      "SCSS",
+      "HTML",
+    ],
+    tags: ["HTML", "SCSS", "PHP"],
+
+    image: charlyMatLocImage,
+    github: "https://github.com/xLaugh/Atelier-developpement-web",
   },
   // ➕ ajoute d'autres projets ici
 ];
