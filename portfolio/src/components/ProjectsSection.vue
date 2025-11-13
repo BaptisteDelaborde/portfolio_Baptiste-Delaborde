@@ -80,6 +80,7 @@ import portfolioImage from "@/assets/images/portfolio.png";
 import nbaStatsImage from "@/assets/images/nbastats.png";
 import charlyMatLocImage from "@/assets/images/charlymatloc.png";
 
+
 const selectedProject = ref(null);
 
 const projects = [
