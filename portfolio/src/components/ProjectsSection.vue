@@ -78,7 +78,7 @@
 import { ref } from "vue";
 import portfolioImage from "@/assets/images/portfolio.png";
 import nbaStatsImage from "@/assets/images/nbastats.png";
-import charlyMatLocImage from "@/assets/images/charlymatloc.png";
+import charlyMatLocImage from "@/assets/images/CharlyMatLoc.png";
 
 
 const selectedProject = ref(null);
