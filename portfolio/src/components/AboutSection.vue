@@ -20,10 +20,8 @@
     <div class="about-objective">
       <h3>Mon objectif</h3>
       <p>
-        Je souhaite développer mes compétences en développement logiciel et
-        acquérir une expérience solide afin de devenir un ingénieur polyvalent
-        en informatique, capable de concevoir des applications performantes et
-        intuitives.
+        Après mon BUT informatique, j'aimerai poursuivre mes études et intégrer l'école de Telecom Nancy 
+        pour approfondir mes connaissances et me spécialiser dans le domaine du développement logiciel.
       </p>
     </div>
   </section>
@@ -37,7 +35,6 @@ const cards = [
     items: [
       "Étudiant en BUT Informatique à l’IUT Nancy-Charlemagne",
       "Spécialisation en développement web et mobile",
-      "Rigueur, passion et curiosité",
     ],
   },
   {
