@@ -5,7 +5,7 @@
     </h2>
 
     <div class="contact-container">
-      <!-- === INFOS DE CONTACT === -->
+      
       <div class="contact-info">
         <h3>Informations de contact</h3>
 
@@ -46,11 +46,11 @@
         </div>
 
         <div class="availability">
-          💼 Je suis actuellement à la recherche d’un stage en développement web.
+          💼 Je suis actuellement à la recherche d’un stage en développement web ou mobile.
         </div>
       </div>
 
-      <!-- === FORMULAIRE === -->
+    
       <div class="contact-form">
         <h3>Envoyez-moi un message</h3>
         <form ref="form" @submit.prevent="sendEmail">
@@ -87,7 +87,7 @@ const sendEmail = async () => {
   successMessage.value = "";
   errorMessage.value = "";
 
-  // Récupération manuelle des champs
+  
   const formData = {
     from_name: form.value.name.value,
     from_email: form.value.email.value,
@@ -96,10 +96,10 @@ const sendEmail = async () => {
 
   try {
     await emailjs.send(
-      "service_3eqckue",     // ✅ Ton Service ID
-      "template_shlterp",    // ✅ Ton Template ID
-      formData,              // ✅ On envoie les données manuellement
-      "MRwdTU6gSBcjIph_J"    // ✅ Ta clé publique EmailJS
+      "service_3eqckue",
+      "template_shlterp",
+      formData, 
+      "MRwdTU6gSBcjIph_J"  
     );
 
     successMessage.value = "Message envoyé avec succès ✅";
