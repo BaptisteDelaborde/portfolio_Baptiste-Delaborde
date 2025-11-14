@@ -79,7 +79,7 @@ import { ref } from "vue";
 import portfolioImage from "@/assets/images/portfolio.png";
 import nbaStatsImage from "@/assets/images/nbastats.png";
 import charlyMatLocImage from "@/assets/images/CharlyMatLoc.png";
-
+import CycleCoachImage from "@/assets/images/cyclecoach.png";
 
 const selectedProject = ref(null);
 
@@ -156,6 +156,26 @@ const projects = [
 
     image: charlyMatLocImage,
     github: "https://github.com/xLaugh/Atelier-developpement-web",
+  },
+  {
+    title: "CycleCoach",
+    subtitle: "flutter / dart",
+    description:
+      "Visulaliser et planifier vos entrainements de cyclisme.",
+    fullDescription:
+      "CycleCoach est une application mobile développée avec Flutter et Dart qui aide les cyclistes à planifier et suivre leurs entraînements. L'application offre des fonctionnalités telles que la création de plans d'entraînement personnalisés, le suivi des performances et l'analyse des données.",
+    features: [
+      "creation de plans d'entraînement personnalisés",
+      "suivi des performances en temps réel",
+      "analyse des données d'entraînement",
+    ],
+    technologies: [
+      "Flutter",
+      "Dart",
+    ],
+    tags: ["Flutter", "Dart"],
+    image: CycleCoachImage,
+    github: "https://github.com/BaptisteDelaborde/cyclecoach",
   },
   // ➕ ajoute d'autres projets ici
 ];
